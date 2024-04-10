@@ -1,0 +1,15 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+# Expone el puerto de desarrollo del servidor de React
+EXPOSE 3000
+
+# Comando para iniciar el servidor de desarrollo de React
+CMD ["npm", "run", "start"]

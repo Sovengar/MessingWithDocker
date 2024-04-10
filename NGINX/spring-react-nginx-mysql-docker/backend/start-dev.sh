@@ -1,0 +1,1 @@
+ENV_FILE=./.env.dev SECRET=mynewsecret docker-compose up -d --build

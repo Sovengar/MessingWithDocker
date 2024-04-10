@@ -1,0 +1,17 @@
+version: '3'
+services:
+  spring-boot-app:
+    container_name: spring-boot-app-container
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        CONTAINER_PORT: ${CONTAINER_PORT}
+    restart: unless-stopped
+    #image: spring-boot-app:tag
+    env_file:
+      - ${ENV_FILE}
+    expose:
+      - ${CONTAINER_PORT}
+    ports:
+      - ${CONTAINER_PORT}:${HOST_PORT}
